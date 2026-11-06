@@ -1,0 +1,8 @@
+{
+  "name": "save-point-v3",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Biblioteca pessoal de referências de trilhas sonoras autorizadas",
+  "scripts": { "start": "node server.mjs" },
+  "engines": { "node": ">=20" }
+}

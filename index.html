@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101117">
+  <meta name="description" content="Organize e ouça trilhas sonoras compartilhadas com autorização ou sob licença aberta.">
+  <title>Save Point — biblioteca de trilhas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Save Point, início"><span class="brand-mark">♫</span><span>SAVE<span class="brand-light">POINT</span></span></a>
+    <nav aria-label="Navegação"><a href="#library">Biblioteca</a><a href="#add">Adicionar</a></nav>
+    <div class="header-actions">
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Alternar tema" title="Alternar tema">☼</button>
+      <button id="export-button" class="outline-button" type="button">Exportar</button>
+    </div>
+  </header>
+  <main>
+    <section class="hero"><div class="hero-content"><p class="eyebrow">A SUA COLEÇÃO DE MÚSICA DE JOGOS</p><h1>Trilhas que ficam<br><span>na memória.</span></h1><p class="muted hero-copy">Organize, ouça e guarde referências de trilhas compartilhadas legalmente.</p><a class="primary-button" href="#library">Explorar biblioteca <span>↘</span></a></div><div class="hero-disc" aria-hidden="true"><div class="vinyl"><div>♫</div></div><span class="equalizer">▂ ▅ ▃ ▇ ▄ ▆ ▂</span></div></section>
+    <section class="section" id="library"><div class="section-title"><div><p class="eyebrow">COLEÇÃO</p><h2>Sua biblioteca<span class="accent">.</span></h2></div><span id="track-count" class="muted"></span></div>
+      <div class="toolbar"><input id="search" type="search" placeholder="Buscar faixa, jogo ou artista..." aria-label="Buscar"><select id="genre-filter" aria-label="Filtrar por gênero"><option value="">Todos os gêneros</option></select><select id="sort"><option value="recent">Mais recentes</option><option value="title">Título</option><option value="game">Jogo</option></select></div>
+      <div id="track-grid" class="track-grid" aria-live="polite"></div><p id="empty-state" class="empty-state">Nenhuma trilha encontrada. Adicione uma faixa autorizada abaixo.</p>
+    </section>
+    <section class="section add-section" id="add"><div><p class="eyebrow">ADICIONAR À BIBLIOTECA</p><h2>Compartilhe uma descoberta<span class="accent">.</span></h2><p class="muted">Os links do YouTube e Spotify ficam como referência e abrem a plataforma oficial. Para ouvir no player, informe um link direto para áudio que permita reprodução.</p></div>
+      <form id="track-form" class="track-form">
+        <div class="form-row"><label>Nome da faixa<input name="title" required maxlength="120" placeholder="Nome da faixa"></label><label>Jogo<input name="game" required maxlength="120" placeholder="Nome do jogo"></label></div>
+        <div class="form-row"><label>Artista / compositor<input name="artist" maxlength="120" placeholder="Opcional"></label><label>Gênero<input name="genre" maxlength="60" placeholder="Ex.: orquestral, chiptune"></label></div>
+        <div class="form-row"><label>Licença ou autorização<input name="license" required maxlength="120" placeholder="Ex.: CC BY 4.0, autorização do titular"></label><label>Link direto de áudio <span class="muted">(opcional)</span><input name="audioUrl" type="url" placeholder="https://.../track.mp3"></label></div>
+        <label>Link de referência (YouTube, Spotify ou fonte)<input name="sourceUrl" type="url" placeholder="https://..." required></label>
+        <label>Observações<textarea name="notes" maxlength="500" rows="3" placeholder="Créditos, informações de licença ou outras notas"></textarea></label>
+        <label class="confirm"><input name="authorized" type="checkbox" required><span>Confirmo que tenho autorização ou que os termos/licença permitem compartilhar esta referência e, se indicado, reproduzir o áudio.</span></label>
+        <div class="form-actions"><button class="primary-button" type="submit">Salvar faixa</button><span id="form-message" role="status"></span></div>
+      </form>
+    </section>
+    <section class="legal section"><p class="eyebrow">RESPEITO AOS CRIADORES</p><p class="muted">O Save Point não baixa nem extrai áudio do YouTube ou Spotify, não contorna DRM e não hospeda músicas. Links dessas plataformas são apenas referências que abrem o serviço original. Use somente conteúdo que tenha autorização para reprodução ou distribuição.</p></section>
+  </main>
+  <aside id="mini-player" class="mini-player" aria-label="Mini player" hidden><div class="now-playing"><span class="player-note">♫</span><div><strong id="player-title">Nenhuma faixa</strong><small id="player-game"></small></div></div><audio id="audio-player" controls preload="none"></audio><button id="stop-player" class="icon-button" type="button" aria-label="Parar reprodução" title="Parar">×</button></aside>
+  <footer><span class="brand"><span class="brand-mark">♫</span>SAVE<span class="brand-light">POINT</span></span><span class="muted">Uma biblioteca pessoal, com respeito à música.</span></footer>
+</body>
+</html>

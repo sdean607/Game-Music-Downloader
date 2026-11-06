@@ -1,0 +1,1 @@
+const theme=localStorage.getItem('savepoint-theme');if(theme==='light')document.documentElement.dataset.theme='light';document.querySelectorAll('#theme-toggle').forEach(button=>button.addEventListener('click',()=>{const root=document.documentElement;const next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;localStorage.setItem('savepoint-theme',next);}));
